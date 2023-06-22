@@ -1,4 +1,4 @@
-
+/*
   // Solicitud del nombre y apellido. Los quise hacer distintos cuadro de diálogo. Solo se aceptan letras 
   let nombre = prompt("Ingrese su nombre");
   if (nombre.trim() === "") {
@@ -60,7 +60,7 @@ function calcularTiempoRestante(fechaHora) {
    //ahora calculo la diferencia
     const diferencia = fechaTurno - fechaActual;
   
-    // Esto lo copie de un foro, no sé si se calcula así pero no encontré cómo hacerlo sino par aque no sea resultado de milisegundos
+    
     const mesesRestantes = Math.floor(diferencia / (1000 * 3600 * 24 * 30));
     const diasRestantes = Math.floor(diferencia / (1000 * 3600 * 24));
     
@@ -75,7 +75,7 @@ function calcularTiempoRestante(fechaHora) {
   // Pedir la fecha del turno (DD-MM)
   const fechaTurno = prompt("Ingresá la fecha del turno respetando el siguiente formato: (DD-MM)");
   
-  // esto recomendaban  tambien en el foro
+  
   const añoActual = new Date().getFullYear();
   
   // Separar el día y el mes de la fecha ingresada
@@ -87,7 +87,6 @@ function calcularTiempoRestante(fechaHora) {
   // Solicitar al usuario la hora del turno
   const horaTurno = prompt("Ahora ingresá la hora del turno, también respetando el siguiente formato: (HH:mm)");
   
-
   // Calcular el tiempo restante hasta el turno
   const tiempoRestante = calcularTiempoRestante(fechaHoraTurno);
   
@@ -96,4 +95,56 @@ function calcularTiempoRestante(fechaHora) {
   
   // Mostrar el tiempo restante hasta el turno
   alert ("Recordá que falta " + tiempoRestante.meses + " meses, " + tiempoRestante.dias + " días,  para tu turno. Te recomendamos estar en la sala de espera al menos 20 minutos antes. ¡Saludos! ");
+  css*/
   
+
+  class Paciente{
+    constructor(nombre,especialidad, obraSocial, costoBruto){
+      this.nombre=nombre;
+      this.especialidad = especialidad;
+      this.obraSocial = obraSocial;
+      this.costoBruto = costoBruto;
+    }
+  
+
+  descontarObraSocial() {
+    if (this.obraSocial=="true"){
+    return this.costoBruto /6;
+  }else if (this.obraSocial == "false") {
+    return this.costoBruto
+  }
+}
+  }
+
+
+var arrayPaciente = [];
+
+do{
+  var comprobacion = prompt("ingrese los datos del nuevo paciente o <Exit> para salir");
+  if (comprobacion.tolowercase() == "Exit") {
+    break
+  }else{
+    var nombreP = prompt("Ingrese el nombre y apellido del paciente nuevo");
+    var especialidadP = prompt("Ingrese especialidad por la que consulta");
+    var obraSocialP = prompt("si tiene obra social coloque true");
+    var costoBrutoP = prompt ("costo consulta en bruto");
+    arrayPaciente.push( new Paciente(nombreP, especialidadP, obraSocialP, prepagaP,costoBrutoP));
+  } 
+  while (comprobacion != "EXIT"|| comprobacion != "Exit" || comprobacion != "exit")
+  console.log(arrayPaciente);
+}
+  
+
+document.write("<h3> El nuevo paciente se llama " + this.nombre + " y el costo de su consulta para la especialidad " + this.especialidad + "es de"+ descontarObraSocial() );
+for (var paciente of arrayPaciente) {
+  document.write ("<h3> El nombre del paciente es: " + paciente.nombre);
+  document.write ("<h3> que se atenderá en la especialidad: " + paciente.especialidad);
+  document.write ("<h3> el costo de su consulta es de: " + descontarObraSocial())
+}
+
+
+
+
+
+
+
